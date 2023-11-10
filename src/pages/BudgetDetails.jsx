@@ -22,7 +22,7 @@ const BudgetDetails = () => {
           setBudget(doc.data());
         } else {
           console.log("No such document!");
-          navigate("/");
+          navigate("/404");
         }
       });
     };
