@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.129bf2a0.css",
-    "main.js": "/static/js/main.6ac1a27e.js",
-    "static/js/787.ff80e50e.chunk.js": "/static/js/787.ff80e50e.chunk.js",
-    "static/media/success-squirel.png": "/static/media/success-squirel.af63e188275f10370940.png",
-    "index.html": "/index.html",
-    "main.129bf2a0.css.map": "/static/css/main.129bf2a0.css.map",
-    "main.6ac1a27e.js.map": "/static/js/main.6ac1a27e.js.map",
-    "787.ff80e50e.chunk.js.map": "/static/js/787.ff80e50e.chunk.js.map"
+    "main.css": "/budgetify/static/css/main.129bf2a0.css",
+    "main.js": "/budgetify/static/js/main.8ba27843.js",
+    "static/js/787.ff80e50e.chunk.js": "/budgetify/static/js/787.ff80e50e.chunk.js",
+    "static/media/success-squirel.png": "/budgetify/static/media/success-squirel.af63e188275f10370940.png",
+    "index.html": "/budgetify/index.html",
+    "main.129bf2a0.css.map": "/budgetify/static/css/main.129bf2a0.css.map",
+    "main.8ba27843.js.map": "/budgetify/static/js/main.8ba27843.js.map",
+    "787.ff80e50e.chunk.js.map": "/budgetify/static/js/787.ff80e50e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.129bf2a0.css",
-    "static/js/main.6ac1a27e.js"
+    "static/js/main.8ba27843.js"
   ]
 }
