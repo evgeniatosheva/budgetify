@@ -2,6 +2,7 @@ import { Box, LinearProgress, Typography, useTheme } from "@mui/material";
 import SectionTitle from "./SectionTitle";
 import plusIcon from "../assets/icons/plus.png";
 
+// This component is the wrapper for the cards. It does the layout and spacing
 const SavingGoals = () => {
   return (
     <Box width='100%' p={2}>

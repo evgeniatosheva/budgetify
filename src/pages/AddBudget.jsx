@@ -1,23 +1,18 @@
-import {
-  Box,
-  Button,
-  MenuItem,
-  TextField,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, MenuItem, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { MobileDatePicker } from "@mui/x-date-pickers";
 import { useMemo } from "react";
 import FormSuccessScreen from "../components/FormSuccessScreen";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebaseConfig";
+import CustomButton from "../components/CustomButton";
 
+// Evgenia
 const AddBudget = () => {
-  const theme = useTheme();
-
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState();
-  const [period, setPeriod] = useState("monthly");
+  const [period, setPeriod] = useState("Monthly");
 
   const [hasSubmitted, setHasSubmitted] = useState(false); // This is for validations
   const [formSubmittedSuccessfully, setFormSubmittedSuccessfully] =
@@ -36,20 +31,32 @@ const AddBudget = () => {
     [date, hasSubmitted]
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // Here, we check for validation errors in the fields
     e.preventDefault();
     setHasSubmitted(true);
 
     if (name === "" || amount === "" || date === undefined) return;
-    setFormSubmittedSuccessfully(true);
+
+    try {
+      await addDoc(collection(db, "budgets"), {
+        name,
+        savingPeriod: period,
+        startDate: new Date(date).toLocaleDateString(),
+        total: amount,
+      });
+
+      setFormSubmittedSuccessfully(true);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
   return !formSubmittedSuccessfully ? (
     <Box p={2}>
       <Typography variant='h5'>Set your budget</Typography>
       <Typography variant='body1'>
-        Lorem ipsum dolor sit amet consectetur. Pellentesque consequat{" "}
+        Set your budget and start saving money
       </Typography>
 
       <Box
@@ -97,27 +104,13 @@ const AddBudget = () => {
           label='Deposit period'
           select
         >
-          <MenuItem value='monthly'>Monthly</MenuItem>
-          <MenuItem value='weekly'>Weekly</MenuItem>
-          <MenuItem value='quarerly'>Quarterly</MenuItem>
-          <MenuItem value='yearly'>Yearly</MenuItem>
+          <MenuItem value='Monthly'>Monthly</MenuItem>
+          <MenuItem value='Weekly'>Weekly</MenuItem>
+          <MenuItem value='Quarerly'>Quarterly</MenuItem>
+          <MenuItem value='Yearly'>Yearly</MenuItem>
         </TextField>
 
-        <Button
-          type='submit'
-          sx={{
-            borderRadius: 10,
-            color: "white",
-            bgcolor: theme.palette.secondary.main,
-            ":hover": {
-              color: "white",
-              bgcolor: theme.palette.secondary.dark,
-            },
-          }}
-          onClick={handleSubmit}
-        >
-          Continue
-        </Button>
+        <CustomButton onClick={handleSubmit}>Continue</CustomButton>
       </Box>
     </Box>
   ) : (

@@ -1,10 +1,9 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import successImage from "../assets/img/success-squirel.png";
 import { Link } from "react-router-dom";
+import CustomButton from "./CustomButton";
 
 const FormSuccessScreen = () => {
-  const theme = useTheme();
-
   return (
     <Box
       display='flex'
@@ -18,22 +17,10 @@ const FormSuccessScreen = () => {
       <Typography variant='h5' sx={{ mx: 3 }}>
         You are all set
       </Typography>
-      <Button
-        component={Link}
-        sx={{
-          width: "100%",
-          borderRadius: 10,
-          color: "white",
-          bgcolor: theme.palette.secondary.main,
-          ":hover": {
-            color: "white",
-            bgcolor: theme.palette.secondary.dark,
-          },
-        }}
-        to='/'
-      >
+
+      <CustomButton component={Link} to='/'>
         Go to Home page
-      </Button>
+      </CustomButton>
     </Box>
   );
 };

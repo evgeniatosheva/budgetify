@@ -4,6 +4,7 @@ import BudgetTracking from "../components/BudgetTracking";
 import SpendingsOverview from "../components/SpendingsOverview";
 import SavingGoals from "../components/SavingGoals";
 
+// Evgenia
 const Home = () => {
   return (
     <Box

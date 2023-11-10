@@ -5,11 +5,11 @@ import dunkinImg from "../assets/img/dunkin.png";
 import costcoImg from "../assets/img/costco.png";
 import walmartImg from "../assets/img/walmart.png";
 
-const SpendingsOverview = () => {
+const SpendingsOverview = ({ padding = 2 }) => {
   const theme = useTheme();
 
   return (
-    <Box display='flex' flexDirection='column' mt={5} width='100%' p={2}>
+    <Box display='flex' flexDirection='column' mt={5} width='100%' p={padding}>
       <SectionTitle title='Spendings' link='/' />
 
       <Card sx={{ mt: 2, position: "relative" }}>
